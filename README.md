@@ -1,43 +1,44 @@
-# Flaskスケルトン
-
-※Web作成時は、Serverディレクトリ内でゴニョゴニョ  
-
-Dockerインストール必須  
-Windows環境の場合は要makeインストール
-
-## 起動
-```
-# make run
-```
-## 停止
-```
-# make stop
-```
-
+# Flask + line-bot-sdk
 # 構成
 ```
 .
-├── Makefile
-├── README.md
 ├── app
-│   ├── Dockerfile
-│   ├── requirements.txt
-│   ├── src
-│   │   ├── config
-│   │   │   ├── __init__.py
-│   │   │   └── default.py
-│   │   ├── run.py
-│   │   ├── server
-│   │   │   ├── __init__.py
-│   │   │   └── hoge
-│   │   │       ├── __init__.py
-│   │   │       └── hoge_api.py
-│   │   └── tests
-│   │       ├── __init__.py
-│   │       └── test_hoge.py
-│   └── uwsgi.ini
+│   ├── Dockerfile
+│   ├── logs
+│   │   ├── python.log
+│   │   └── uwsgi.log
+│   ├── requirements.txt
+│   ├── src
+│   │   ├── config
+│   │   │   ├── default.py
+│   │   │   ├── __init__.py
+│   │   │   └── __pycache__
+│   │   │       ├── default.cpython-36.pyc
+│   │   │       └── __init__.cpython-36.pyc
+│   │   ├── run.py
+│   │   ├── search
+│   │   │   ├── __init__.py
+│   │   │   └── search.py
+│   │   ├── server
+│   │   │   ├── hoge
+│   │   │   │   ├── hoge_api.py
+│   │   │   │   ├── __init__.py
+│   │   │   │   └── __pycache__
+│   │   │   │       ├── hoge_api.cpython-36.pyc
+│   │   │   │       └── __init__.cpython-36.pyc
+│   │   │   ├── __init__.py
+│   │   │   └── __pycache__
+│   │   │       └── __init__.cpython-36.pyc
+│   │   └── tests
+│   │       ├── __init__.py
+│   │       └── test_hoge.py
+│   └── uwsgi.ini
 ├── docker-compose.yml
-└── nginx
-    ├── Dockerfile
-    └── nginx.conf
+├── nginx
+│   ├── Dockerfile
+│   ├── logs
+│   │   ├── access.log
+│   │   └── error.log
+│   └── nginx.conf
+└── README.md
 ```
