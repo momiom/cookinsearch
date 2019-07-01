@@ -1,0 +1,37 @@
+version: "2"
+services:
+
+  uwsgi:
+    build: ./app
+    volumes:
+      - ./app:/var/www/
+      - ./app/logs:/var/logs/
+    ports:
+      - "3031:3031"
+    environment:
+      TZ: "Asia/Tokyo"
+    networks:
+      - flask_uwsgi_nginx
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/logs:/var/log/nginx
+    networks:
+      - flask_uwsgi_nginx
+      - nginx-ssl
+    ports:
+      - "60000:80"
+    environment:
+      TZ: "Asia/Tokyo"
+      VIRTUAL_HOST: line.k12i.space
+      VIRTUAL_PORT: 60000
+      LETSENCRYPT_HOST: line.k12i.space
+      LETSENCRYPT_EMAIL: kazuki.k.bl8@gmail.com
+
+networks:
+  flask_uwsgi_nginx:
+    driver: bridge
+  nginx-ssl:
+    external: true
