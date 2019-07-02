@@ -1,5 +1,4 @@
 from flask import Flask, request, abort
-
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -9,25 +8,27 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
-
 import logging
 
 logging.basicConfig(filename='/var/logs/python.log', level=logging.DEBUG)
 
 app = Flask(__name__)
 
-line_bot_api = LineBotApi('bB/emTb7qCaeqWMUZB8QFNaDKfjX/WaqGXzhefUbR/ekqj31/yRneAY/HJn06iBiOR1mqlhuda9A1343d4ZBDGjuv6QsLPczGtMV5iSzFE249IEWX2q280JPZd1pxNkfuNqdl6tHZzp35QuX6ailHgdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi(
+    'bB/emTb7qCaeqWMUZB8QFNaDKfjX/WaqGXzhefUbR/ekqj31/yRneAY/HJn06iBiOR1mqlhuda9A1343d4ZBDGjuv6QsLPczGtMV5iSzFE249IEWX2q280JPZd1pxNkfuNqdl6tHZzp35QuX6ailHgdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('323db4ca5a11c147b072e2b4faa3d3d5')
+
 
 @app.route("/")
 def index():
     app.logger.info('call index')
     return '<h1>index</h1>'
 
+
 @app.route("/callback", methods=['POST'])
 def callback():
     app.logger.debug('Debug call /call back')
-    
+
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
 
@@ -49,7 +50,7 @@ def callback():
 def handle_message(event):
 
     msg = 'れちゃん「{}」'.format(event.message.text)
-    
+
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=msg))
