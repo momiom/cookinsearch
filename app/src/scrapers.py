@@ -3,7 +3,7 @@ import requests
 import logging
 
 
-class CookinScraper:
+class Scraper:
     def __init__(self, input_word):
         if __name__ != "__main__":
             # Flaskのロガーを取得
@@ -11,7 +11,9 @@ class CookinScraper:
         # 検索ワードを設定
         self.input_word = input_word
 
-    def request_cookin(self):
+
+class CookinScraper(Scraper):
+    def request(self):
         # 検索用url作成
         base_url = 'https://cookien.com/?s={}'
         request_url = base_url.format(self.input_word)
@@ -25,6 +27,11 @@ class CookinScraper:
         else:
             self.logger.warn('Failed to request.')
             response.raise_for_status()
+
+
+class ShirogohanScraper(Scraper):
+    def request(self):
+
 
 if __name__ == "__main__":
     s = CookinScraper('鶏肉')
