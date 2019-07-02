@@ -3,7 +3,7 @@ import requests
 import logging
 
 
-class SearchCookin:
+class CookinScraper:
     def __init__(self, input_word):
         if __name__ != "__main__":
             # Flaskのロガーを取得
@@ -27,5 +27,5 @@ class SearchCookin:
             response.raise_for_status()
 
 if __name__ == "__main__":
-    s = SearchCookin('鶏肉')
+    s = CookinScraper('鶏肉')
     s.request_cokkin()
