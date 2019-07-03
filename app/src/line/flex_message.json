@@ -1,231 +1,178 @@
-{
-  "type": "carousel",
-  "contents": [
-    {
-      "type": "bubble",
-      "hero": {
-        "type": "image",
-        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png",
-        "size": "full",
-        "aspectRatio": "20:13",
-        "aspectMode": "cover",
-        "action": {
-          "type": "uri",
-          "uri": "https://linecorp.com"
-        }
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "md",
-        "action": {
-          "type": "uri",
-          "uri": "https://linecorp.com"
-        },
-        "contents": [
-          {
-            "type": "text",
-            "text": "Brown's Burger",
-            "size": "xl",
-            "weight": "bold"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
-                  },
-                  {
-                    "type": "text",
-                    "text": "$10.5",
-                    "weight": "bold",
-                    "margin": "sm",
-                    "flex": 0
-                  },
-                  {
-                    "type": "text",
-                    "text": "400kcl",
-                    "size": "sm",
-                    "align": "end",
-                    "color": "#aaaaaa"
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_large_32.png"
-                  },
-                  {
-                    "type": "text",
-                    "text": "$15.5",
-                    "weight": "bold",
-                    "margin": "sm",
-                    "flex": 0
-                  },
-                  {
-                    "type": "text",
-                    "text": "550kcl",
-                    "size": "sm",
-                    "align": "end",
-                    "color": "#aaaaaa"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "text",
-            "text": "Sauce, Onions, Pickles, Lettuce & Cheese",
-            "wrap": true,
-            "color": "#aaaaaa",
-            "size": "xxs"
-          }
-        ]
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "spacer",
-            "size": "xxl"
-          },
-          {
-            "type": "button",
-            "style": "primary",
-            "color": "#905c44",
-            "action": {
-              "type": "uri",
-              "label": "Add to Cart",
-              "uri": "https://linecorp.com"
-            }
-          }
-        ]
-      }
-    },
-        {
-      "type": "bubble",
-      "hero": {
-        "type": "image",
-        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png",
-        "size": "full",
-        "aspectRatio": "20:13",
-        "aspectMode": "cover",
-        "action": {
-          "type": "uri",
-          "uri": "https://linecorp.com"
-        }
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "md",
-        "action": {
-          "type": "uri",
-          "uri": "https://linecorp.com"
-        },
-        "contents": [
-          {
-            "type": "text",
-            "text": "Brown's Burger",
-            "size": "xl",
-            "weight": "bold"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png"
-                  },
-                  {
-                    "type": "text",
-                    "text": "$10.5",
-                    "weight": "bold",
-                    "margin": "sm",
-                    "flex": 0
-                  },
-                  {
-                    "type": "text",
-                    "text": "400kcl",
-                    "size": "sm",
-                    "align": "end",
-                    "color": "#aaaaaa"
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "contents": [
-                  {
-                    "type": "icon",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_large_32.png"
-                  },
-                  {
-                    "type": "text",
-                    "text": "$15.5",
-                    "weight": "bold",
-                    "margin": "sm",
-                    "flex": 0
-                  },
-                  {
-                    "type": "text",
-                    "text": "550kcl",
-                    "size": "sm",
-                    "align": "end",
-                    "color": "#aaaaaa"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "text",
-            "text": "Sauce, Onions, Pickles, Lettuce & Cheese",
-            "wrap": true,
-            "color": "#aaaaaa",
-            "size": "xxs"
-          }
-        ]
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "spacer",
-            "size": "xxl"
-          },
-          {
-            "type": "button",
-            "style": "primary",
-            "color": "#905c44",
-            "action": {
-              "type": "uri",
-              "label": "Add to Cart",
-              "uri": "https://linecorp.com"
-            }
-          }
-        ]
-      }
-    }
-  ]
-}
+type: carousel
+contents:
+  - type: bubble
+    header:
+      type: box
+      layout: horizontal
+      margin: none
+      spacing: none
+      action:
+        type: uri
+        uri: 'https://cookien.com/recipe/21587/'
+      contents:
+        - type: image
+          url: 'https://cookien.com/wp-content/themes/tsukuoki/img/tsukuoki_logo_pc.png?2018'
+          size: xs
+          align: start
+          margin: none
+          action:
+            type: uri
+            uri: 'https://cookien.com'
+    hero:
+      type: image
+      url: 'https://cookien.com/wp-content/uploads/2019/07/nasu-hasami-yaki.jpg'
+      size: full
+      aspectRatio: '20:13'
+      aspectMode: cover
+      action:
+        type: uri
+        uri: 'https://cookien.com/recipe/21587/'
+    body:
+      type: box
+      layout: vertical
+      spacing: md
+      action:
+        type: uri
+        uri: 'https://cookien.com/recipe/21587/'
+      contents:
+        - type: text
+          text: なすのはさみ焼き
+          color: '#5c5752'
+          size: lg
+          weight: bold
+        - type: text
+          text: 鶏ひき肉をはさんだ、ふっくら食感がおいしい、なすのはさみ焼きのレシピです。
+          size: sm
+          maxLines: 2
+          wrap: true
+        - type: box
+          layout: vertical
+          spacing: sm
+          contents:
+            - type: box
+              layout: baseline
+              contents:
+                - type: icon
+                  url: >-
+                    https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png
+                - type: text
+                  text: $10.5
+                  weight: bold
+                  margin: sm
+                  flex: 0
+                - type: text
+                  text: 400kcl
+                  size: sm
+                  align: end
+                  color: '#aaaaaa'
+            - type: box
+              layout: baseline
+              contents:
+                - type: icon
+                  url: >-
+                    https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_large_32.png
+                - type: text
+                  text: $15.5
+                  weight: bold
+                  margin: sm
+                  flex: 0
+                - type: text
+                  text: 550kcl
+                  size: sm
+                  align: end
+                  color: '#aaaaaa'
+        - type: text
+          text: 'Sauce, Onions, Pickles, Lettuce & Cheese'
+          wrap: true
+          color: '#aaaaaa'
+          size: xxs
+    footer:
+      type: box
+      layout: vertical
+      contents:
+        - type: spacer
+          size: xxl
+        - type: button
+          style: primary
+          color: '#905c44'
+          action:
+            type: uri
+            label: Add to Cart
+            uri: 'https://linecorp.com'
+  - type: bubble
+    hero:
+      type: image
+      url: >-
+        https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png
+      size: full
+      aspectRatio: '20:13'
+      aspectMode: cover
+      action:
+        type: uri
+        uri: 'https://linecorp.com'
+    body:
+      type: box
+      layout: vertical
+      spacing: md
+      action:
+        type: uri
+        uri: 'https://linecorp.com'
+      contents:
+        - type: text
+          text: Brown's Burger
+          size: xl
+          weight: bold
+        - type: box
+          layout: vertical
+          spacing: sm
+          contents:
+            - type: box
+              layout: baseline
+              contents:
+                - type: icon
+                  url: >-
+                    https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_regular_32.png
+                - type: text
+                  text: $10.5
+                  weight: bold
+                  margin: sm
+                  flex: 0
+                - type: text
+                  text: 400kcl
+                  size: sm
+                  align: end
+                  color: '#aaaaaa'
+            - type: box
+              layout: baseline
+              contents:
+                - type: icon
+                  url: >-
+                    https://scdn.line-apps.com/n/channel_devcenter/img/fx/restaurant_large_32.png
+                - type: text
+                  text: $15.5
+                  weight: bold
+                  margin: sm
+                  flex: 0
+                - type: text
+                  text: 550kcl
+                  size: sm
+                  align: end
+                  color: '#aaaaaa'
+        - type: text
+          text: 'Sauce, Onions, Pickles, Lettuce & Cheese'
+          wrap: true
+          color: '#aaaaaa'
+          size: xxs
+    footer:
+      type: box
+      layout: vertical
+      contents:
+        - type: spacer
+          size: xxl
+        - type: button
+          style: primary
+          color: '#905c44'
+          action:
+            type: uri
+            label: Add to Cart
+            uri: 'https://linecorp.com'
