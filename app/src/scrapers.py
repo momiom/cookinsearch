@@ -24,9 +24,9 @@ class Scraper(metaclass=ABCMeta):
 
 class CookinScraper(Scraper):
     def get_items():
-        
+
         return cokkin_items
-    
+
     def request(self):
         # 検索用url作成
         base_url = 'https://cookien.com/?s={}'
@@ -51,4 +51,3 @@ class ShirogohanScraper(Scraper):
 if __name__ == "__main__":
     s = CookinScraper('鶏肉')
     s.request_cokkin()
-
