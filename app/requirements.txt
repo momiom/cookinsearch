@@ -4,3 +4,4 @@ line-bot-sdk
 beautifulsoup4
 lxml
 requests
+pyyaml
