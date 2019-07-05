@@ -6,11 +6,17 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage, Base,
+    CarouselTemplate, CarouselColumn, TemplateSendMessage,
+    URIAction, PostbackAction, MessageAction
 )
 import logging
+import yaml
+import json
+from collections import OrderedDict
 
-logging.basicConfig(filename='/var/logs/python.log', level=logging.DEBUG)
+fmt = "%(levelname)s - %(asctime)s - %(pathname)s in %(funcName)s [line:%(lineno)d] : %(message)s"
+logging.basicConfig(filename='/var/logs/python.log', level=logging.DEBUG, format=fmt)
 
 app = Flask(__name__)
 
@@ -49,11 +55,24 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
-    msg = 'れちゃん「{}」'.format(event.message.text)
+    # msg = 'れちゃん「{}」'.format(event.message.text)
 
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=msg))
+    # line_bot_api.reply_message(
+    #     event.reply_token,
+    #     TextSendMessage(text=msg))
+    carousel_template = CarouselTemplate(columns=[
+        CarouselColumn(text='hoge1', title='fuga1', actions=[
+            URIAction(label='Go to line.me', uri='https://line.me'),
+            PostbackAction(label='ping', data='ping')
+        ]),
+        CarouselColumn(text='hoge2', title='fuga2', actions=[
+            PostbackAction(label='ping with text', data='ping', text='ping'),
+            MessageAction(label='Translate Rice', text='米')
+        ]),
+    ])
+    template_message = TemplateSendMessage(
+        alt_text='Carousel alt text', template=carousel_template)
+    line_bot_api.reply_message(event.reply_token, template_message)
 
 
 if __name__ == "__main__":
