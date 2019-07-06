@@ -8,6 +8,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, Base,
     CarouselTemplate, CarouselColumn, TemplateSendMessage,
+    CarouselContainer, FlexSendMessage,
     URIAction, PostbackAction, MessageAction
 )
 import logging
@@ -62,8 +63,14 @@ def handle_message(event):
     #     TextSendMessage(text=msg))
     
     with open('line/flex_message.json') as f:
-        data = json.dump(f)
-    carousel_template = Base.new_from_json_dict(data)
+        data = json.load(f)
+        
+    app.logger.debug('Load json')
+    app.logger.debug(data)
+    
+    carousel_template = CarouselContainer.new_from_json_dict(data)
+    app.logger.debug('load corousel template')
+    app.logger.debug(carousel_template)
     
 #     carousel_template = CarouselTemplate(columns=[
 #         CarouselColumn(text='hoge1', title='fuga1', actions=[
@@ -75,8 +82,8 @@ def handle_message(event):
 #             MessageAction(label='Translate Rice', text='米')
 #         ]),
 #     ])
-    template_message = TemplateSendMessage(
-        alt_text='Carousel alt text', template=carousel_template)
+    template_message = FlexSendMessage(
+        alt_text='Carousel alt text', contents=carousel_template)
     line_bot_api.reply_message(event.reply_token, template_message)
 
 

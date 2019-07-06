@@ -3,29 +3,6 @@
   "contents": [
     {
       "type": "bubble",
-      "header": {
-        "type": "box",
-        "layout": "horizontal",
-        "margin": "none",
-        "spacing": "none",
-        "action": {
-          "type": "uri",
-          "uri": "https://cookien.com/recipe/21587/"
-        },
-        "contents": [
-          {
-            "type": "image",
-            "url": "https://cookien.com/wp-content/themes/tsukuoki/img/tsukuoki_logo_pc.png?2018",
-            "size": "xs",
-            "align": "start",
-            "margin": "none",
-            "action": {
-              "type": "uri",
-              "uri": "https://cookien.com"
-            }
-          }
-        ]
-      },
       "hero": {
         "type": "image",
         "url": "https://cookien.com/wp-content/uploads/2019/07/nasu-hasami-yaki.jpg",
