@@ -46,7 +46,7 @@ def callback():
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
-        print("Invalid signature. Please check your channel access token/channel secret.")
+        app.logger.error("Invalid signature. Please check your channel access token/channel secret.")
         abort(400)
 
     return 'OK'
@@ -60,16 +60,21 @@ def handle_message(event):
     # line_bot_api.reply_message(
     #     event.reply_token,
     #     TextSendMessage(text=msg))
-    carousel_template = CarouselTemplate(columns=[
-        CarouselColumn(text='hoge1', title='fuga1', actions=[
-            URIAction(label='Go to line.me', uri='https://line.me'),
-            PostbackAction(label='ping', data='ping')
-        ]),
-        CarouselColumn(text='hoge2', title='fuga2', actions=[
-            PostbackAction(label='ping with text', data='ping', text='ping'),
-            MessageAction(label='Translate Rice', text='米')
-        ]),
-    ])
+    
+    with open('line/flex_message.json') as f:
+        data = json.dump(f)
+    carousel_template = Base.new_from_json_dict(data)
+    
+#     carousel_template = CarouselTemplate(columns=[
+#         CarouselColumn(text='hoge1', title='fuga1', actions=[
+#             URIAction(label='Go to line.me', uri='https://line.me'),
+#             PostbackAction(label='ping', data='ping')
+#         ]),
+#         CarouselColumn(text='hoge2', title='fuga2', actions=[
+#             PostbackAction(label='ping with text', data='ping', text='ping'),
+#             MessageAction(label='Translate Rice', text='米')
+#         ]),
+#     ])
     template_message = TemplateSendMessage(
         alt_text='Carousel alt text', template=carousel_template)
     line_bot_api.reply_message(event.reply_token, template_message)
