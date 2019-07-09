@@ -1,4 +1,4 @@
-from abc import ABCMeta, abstractmethod
+from abc import ABCMeta, abstractmethod, ABC
 from bs4 import BeautifulSoup
 import requests
 import logging
@@ -11,10 +11,12 @@ class Scraper(metaclass=ABCMeta):
             self.logger = logging.getLogger('flask.app')
         # 検索ワードを設定
         self.input_word = input_word
-        self.base_url = ''
+        self.request_url = ''
+        self._base_url = ''
+        self._soup = None
 
     @abstractmethod
-    def get_items():
+    def get_items(self):
         pass
 
     @abstractmethod
@@ -23,8 +25,7 @@ class Scraper(metaclass=ABCMeta):
 
 
 class CookinScraper(Scraper):
-    def get_items():
-
+    def get_items(self):
         return cokkin_items
 
     def request(self):
@@ -37,13 +38,16 @@ class CookinScraper(Scraper):
         response = requests.get(self.request_url)
         body = response.text
         if response.status_code == requests.codes.ok:
-            self.soup = BeautifulSoup(body, 'lxml')
+            soup = BeautifulSoup(body, 'lxml')
         else:
-            self.logger.warn('Failed to request.')
+            self.logger.warning('Failed to request.')
             response.raise_for_status()
 
 
 class ShirogohanScraper(Scraper):
+    def get_items(self):
+        pass
+
     def request(self):
         pass
 
