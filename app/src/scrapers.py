@@ -34,7 +34,7 @@ class CookinScraper(Scraper):
         self.logger.info('Request URL: {}'.format(self.request_url))
 
         # リクエストして成功したらbs4に渡す
-        response = requests.get(selfrequest_url)
+        response = requests.get(self.request_url)
         body = response.text
         if response.status_code == requests.codes.ok:
             self.soup = BeautifulSoup(body, 'lxml')
