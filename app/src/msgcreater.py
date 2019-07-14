@@ -1,3 +1,8 @@
+from linebot.models import (BubbleContainer, ImageComponent, BoxComponent,
+                            TextComponent, SpacerComponent, IconComponent,
+                            ButtonComponent, SeparatorComponent, URIAction)
+
+
 class CarouselCreater:
     bubble = BubbleContainer(
         direction='ltr',
@@ -98,3 +103,4 @@ class CarouselCreater:
                     action=URIAction(
                         label='WEBSITE', uri="https://example.com"))
             ]), )
+
