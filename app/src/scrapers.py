@@ -33,7 +33,7 @@ class CookinScraper(Scraper):
         self.request_url = base_url.format(self.input_word)
         self.logger.info('Request URL: {}'.format(self.request_url))
 
-        # リクエストして成功したらbs4に渡す
+        # リクエストして成功したらbs4オブジェクトを生成
         response = requests.get(self.request_url)
         body = response.text
         if response.status_code == requests.codes.ok:
