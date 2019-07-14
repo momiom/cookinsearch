@@ -38,11 +38,14 @@ def scrape(bs):
             has_sugumeshi = len(post.find_all('div', class_='cat_now')) > 0
             if has_sugumeshi:
                 tags.append('すぐめし')
+        cooking_methods = post.find('div', class_='cooking_method').find_all('span', recursive=False)
+        cooking_methods = [method.get_text().strip() for method in cooking_methods]
         posts.append({
             'url': url.strip(),
             'title': title.strip(),
             'img': img.strip(),
-            'tags': tags
+            'tags': tags,
+            'cooking_methods': cooking_methods
         })
 
     return posts
@@ -50,7 +53,7 @@ def scrape(bs):
 
 if __name__ == "__main__":
     import json
-    soup = request('鶏肉')
+    soup = request('豚肉')
     posts = scrape(soup)
     print(posts)
     with open('./posts.json', 'w', encoding='utf-8') as f:
