@@ -12,5 +12,5 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 WORKDIR /var/www/src
+COPY src/ ./
 CMD ["uwsgi","--ini","/var/www/uwsgi.ini"]
-RUN mkdir ./logs

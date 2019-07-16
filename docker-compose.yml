@@ -5,7 +5,7 @@ services:
     build: ./app
     volumes:
       - ./app:/var/www/
-      - ./app/logs:/var/logs/
+      - ./logs:/var/logs/
     ports:
       - "3031:3031"
     environment:
