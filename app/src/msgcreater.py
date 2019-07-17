@@ -4,7 +4,7 @@ from linebot.models import (BubbleContainer, ImageComponent, BoxComponent,
 
 
 class CarouselCreater:
-    def create_carousel():
+    def create_carousel(self):
         bubble = BubbleContainer(
             direction='ltr',
             hero=ImageComponent(
@@ -104,4 +104,5 @@ class CarouselCreater:
                         action=URIAction(
                             label='WEBSITE', uri="https://example.com"))
                 ]), )
+        return bubble
 
