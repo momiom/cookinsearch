@@ -3,8 +3,9 @@ from linebot.models import (BubbleContainer, ImageComponent, BoxComponent,
                             ButtonComponent, SeparatorComponent, URIAction)
 
 
-class CarouselCreater:
-    def create_carousel(self):
+class CarouselCreator:
+    @staticmethod
+    def create_carousel():
         bubble = BubbleContainer(
             direction='ltr',
             hero=ImageComponent(

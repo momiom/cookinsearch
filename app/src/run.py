@@ -15,7 +15,7 @@ import logging
 import yaml
 import json
 from collections import OrderedDict
-from msgcreater import CarouselCreater
+from msgcreator import CarouselCreator
 
 fmt = "%(levelname)s - %(asctime)s - %(pathname)s in %(funcName)s [line:%(lineno)d] : %(message)s"
 logging.basicConfig(filename='/var/logs/python.log', level=logging.DEBUG, format=fmt)
@@ -56,9 +56,8 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    carousel_template = CarouselCreater()
-    carousel_template = carousel_template.create_carousel()
-    app.logger.debug('load corousel template')
+    carousel_template = CarouselCreator.create_carousel()
+    app.logger.debug('load carousel template')
     app.logger.debug(carousel_template)
     
     template_message = FlexSendMessage(
