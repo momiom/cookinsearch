@@ -1,0 +1,310 @@
+[
+    {
+        "body": {
+            "contents": [
+                {
+                    "size": "xl",
+                    "text": "Brown Cafe",
+                    "type": "text",
+                    "weight": "bold"
+                },
+                {
+                    "contents": [
+                        {
+                            "size": "sm",
+                            "type": "icon",
+                            "url": "https://example.com/gold_star.png"
+                        },
+                        {
+                            "size": "sm",
+                            "type": "icon",
+                            "url": "https://example.com/grey_star.png"
+                        },
+                        {
+                            "size": "sm",
+                            "type": "icon",
+                            "url": "https://example.com/gold_star.png"
+                        },
+                        {
+                            "size": "sm",
+                            "type": "icon",
+                            "url": "https://example.com/gold_star.png"
+                        },
+                        {
+                            "size": "sm",
+                            "type": "icon",
+                            "url": "https://example.com/grey_star.png"
+                        },
+                        {
+                            "color": "#999999",
+                            "flex": 0,
+                            "margin": "md",
+                            "size": "sm",
+                            "text": "4.0",
+                            "type": "text"
+                        }
+                    ],
+                    "layout": "baseline",
+                    "margin": "md",
+                    "type": "box"
+                },
+                {
+                    "contents": [
+                        {
+                            "contents": [
+                                {
+                                    "color": "#aaaaaa",
+                                    "flex": 1,
+                                    "size": "sm",
+                                    "text": "Place",
+                                    "type": "text"
+                                },
+                                {
+                                    "color": "#666666",
+                                    "flex": 5,
+                                    "size": "sm",
+                                    "text": "Shinjuku, Tokyo",
+                                    "type": "text",
+                                    "wrap": true
+                                }
+                            ],
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "type": "box"
+                        },
+                        {
+                            "contents": [
+                                {
+                                    "color": "#aaaaaa",
+                                    "flex": 1,
+                                    "size": "sm",
+                                    "text": "Time",
+                                    "type": "text"
+                                },
+                                {
+                                    "color": "#666666",
+                                    "flex": 5,
+                                    "size": "sm",
+                                    "text": "10:00 - 23:00",
+                                    "type": "text",
+                                    "wrap": true
+                                }
+                            ],
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "type": "box"
+                        }
+                    ],
+                    "layout": "vertical",
+                    "margin": "lg",
+                    "spacing": "sm",
+                    "type": "box"
+                }
+            ],
+            "layout": "vertical",
+            "type": "box"
+        },
+        "direction": "ltr",
+        "footer": {
+            "contents": [
+                {
+                    "size": "sm",
+                    "type": "spacer"
+                },
+                {
+                    "action": {
+                        "label": "CALL",
+                        "type": "uri",
+                        "uri": "tel:000000"
+                    },
+                    "height": "sm",
+                    "style": "link",
+                    "type": "button"
+                },
+                {
+                    "type": "separator"
+                },
+                {
+                    "action": {
+                        "label": "WEBSITE",
+                        "type": "uri",
+                        "uri": "https://example.com"
+                    },
+                    "height": "sm",
+                    "style": "link",
+                    "type": "button"
+                }
+            ],
+            "layout": "vertical",
+            "spacing": "sm",
+            "type": "box"
+        },
+        "hero": {
+            "action": {
+                "label": "label",
+                "type": "uri",
+                "uri": "http://example.com"
+            },
+            "aspectMode": "cover",
+            "aspectRatio": "20:13",
+            "size": "full",
+            "type": "image",
+            "url": "https://example.com/cafe.jpg"
+        },
+        "type": "bubble"
+    },
+    {
+        "body": {
+            "contents": [
+                {
+                    "size": "xl",
+                    "text": "Brown Cafe",
+                    "type": "text",
+                    "weight": "bold"
+                },
+                {
+                    "contents": [
+                        {
+                            "size": "sm",
+                            "type": "icon",
+                            "url": "https://example.com/gold_star.png"
+                        },
+                        {
+                            "size": "sm",
+                            "type": "icon",
+                            "url": "https://example.com/grey_star.png"
+                        },
+                        {
+                            "size": "sm",
+                            "type": "icon",
+                            "url": "https://example.com/gold_star.png"
+                        },
+                        {
+                            "size": "sm",
+                            "type": "icon",
+                            "url": "https://example.com/gold_star.png"
+                        },
+                        {
+                            "size": "sm",
+                            "type": "icon",
+                            "url": "https://example.com/grey_star.png"
+                        },
+                        {
+                            "color": "#999999",
+                            "flex": 0,
+                            "margin": "md",
+                            "size": "sm",
+                            "text": "4.0",
+                            "type": "text"
+                        }
+                    ],
+                    "layout": "baseline",
+                    "margin": "md",
+                    "type": "box"
+                },
+                {
+                    "contents": [
+                        {
+                            "contents": [
+                                {
+                                    "color": "#aaaaaa",
+                                    "flex": 1,
+                                    "size": "sm",
+                                    "text": "Place",
+                                    "type": "text"
+                                },
+                                {
+                                    "color": "#666666",
+                                    "flex": 5,
+                                    "size": "sm",
+                                    "text": "Shinjuku, Tokyo",
+                                    "type": "text",
+                                    "wrap": true
+                                }
+                            ],
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "type": "box"
+                        },
+                        {
+                            "contents": [
+                                {
+                                    "color": "#aaaaaa",
+                                    "flex": 1,
+                                    "size": "sm",
+                                    "text": "Time",
+                                    "type": "text"
+                                },
+                                {
+                                    "color": "#666666",
+                                    "flex": 5,
+                                    "size": "sm",
+                                    "text": "10:00 - 23:00",
+                                    "type": "text",
+                                    "wrap": true
+                                }
+                            ],
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "type": "box"
+                        }
+                    ],
+                    "layout": "vertical",
+                    "margin": "lg",
+                    "spacing": "sm",
+                    "type": "box"
+                }
+            ],
+            "layout": "vertical",
+            "type": "box"
+        },
+        "direction": "ltr",
+        "footer": {
+            "contents": [
+                {
+                    "size": "sm",
+                    "type": "spacer"
+                },
+                {
+                    "action": {
+                        "label": "CALL",
+                        "type": "uri",
+                        "uri": "tel:000000"
+                    },
+                    "height": "sm",
+                    "style": "link",
+                    "type": "button"
+                },
+                {
+                    "type": "separator"
+                },
+                {
+                    "action": {
+                        "label": "WEBSITE",
+                        "type": "uri",
+                        "uri": "https://example.com"
+                    },
+                    "height": "sm",
+                    "style": "link",
+                    "type": "button"
+                }
+            ],
+            "layout": "vertical",
+            "spacing": "sm",
+            "type": "box"
+        },
+        "hero": {
+            "action": {
+                "label": "label",
+                "type": "uri",
+                "uri": "http://example.com"
+            },
+            "aspectMode": "cover",
+            "aspectRatio": "20:13",
+            "size": "full",
+            "type": "image",
+            "url": "https://example.com/cafe.jpg"
+        },
+        "type": "bubble"
+    }
+]

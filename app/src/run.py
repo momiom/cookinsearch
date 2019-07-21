@@ -16,6 +16,7 @@ import yaml
 import json
 from collections import OrderedDict
 from msgcreator import CarouselCreator
+from scrapers import CookinScraper
 
 fmt = "%(levelname)s - %(asctime)s - %(pathname)s in %(funcName)s [line:%(lineno)d] : %(message)s"
 logging.basicConfig(filename='/var/logs/python.log', level=logging.DEBUG, format=fmt)
@@ -56,12 +57,15 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    carousel_template = CarouselCreator.create_carousel()
+    scraper = CookinScraper(event.message.text)
+    carousel_template = CarouselCreator.create_carousel(scraper.items)
     app.logger.debug('load carousel template')
     app.logger.debug(carousel_template)
     
     template_message = FlexSendMessage(
-        alt_text='Carousel alt text', contents=carousel_template)
+        alt_text='「{}」のレシピ'.format(event.message.text),
+        contents=carousel_template
+    )
     line_bot_api.reply_message(event.reply_token, template_message)
 
 

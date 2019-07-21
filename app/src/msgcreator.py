@@ -5,7 +5,7 @@ from linebot.models import (BubbleContainer, ImageComponent, BoxComponent,
 
 class CarouselCreator:
     @staticmethod
-    def create_carousel():
+    def create_carousel(items):
         bubble = BubbleContainer(
             direction='ltr',
             hero=ImageComponent(
@@ -107,3 +107,6 @@ class CarouselCreator:
                 ]), )
         return bubble
 
+if __name__ == "__main__":
+    carousel_template = CarouselCreator.create_carousel([])
+    print(carousel_template)

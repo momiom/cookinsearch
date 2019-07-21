@@ -12,4 +12,4 @@ class Item(metaclass=ABCMeta):
 class CookinItem(Item):
     def __init__(self, values):
         super().__init__(values)
-        self.cooking_method = values['cooking_method']
+        self.cooking_methods = values['cooking_methods']

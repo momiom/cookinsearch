@@ -3,7 +3,7 @@ from abc import ABCMeta, abstractmethod, ABC
 from bs4 import BeautifulSoup
 import requests
 import logging
-from . import items
+from items import CookinItem
 
 
 class Scraper(metaclass=ABCMeta):
@@ -16,6 +16,9 @@ class Scraper(metaclass=ABCMeta):
         self.request_url = ''
         self._base_url = ''
         self._soup = None
+
+        self.request()
+        self.get_items()
 
     @abstractmethod
     def get_items(self):
@@ -59,14 +62,14 @@ class CookinScraper(Scraper):
                     tags.append('すぐめし')
             cooking_methods = post.find('div', class_='cooking_method').find_all('span', recursive=False)
             cooking_methods = [method.get_text().strip() for method in cooking_methods]
-            post_items.append(items.CookinItem({
+            post_items.append(CookinItem({
                 'url': url.strip(),
                 'title': title.strip(),
                 'img': img.strip(),
                 'tags': tags,
                 'cooking_methods': cooking_methods
             }))
-        return post_items
+        self.items = post_items
 
 
 class ShirogohanScraper(Scraper):
