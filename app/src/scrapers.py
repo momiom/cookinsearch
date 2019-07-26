@@ -35,7 +35,7 @@ class CookinScraper(Scraper):
         # 検索用url作成
         base_url = 'https://cookien.com/?s={}'
         self.request_url = base_url.format(self.input_word)
-        self.logger.info('Request URL: {}'.format(self.request_url))
+        # self.logger.info('Request URL: {}'.format(self.request_url))
 
         # リクエストして成功したらbs4オブジェクトを生成
         response = requests.get(self.request_url)
@@ -46,37 +46,48 @@ class CookinScraper(Scraper):
             self.logger.warning('Failed to request.')
             response.raise_for_status()
 
-
     def get_items(self):
         post_items = []
 
         post_articles = self._soup.find_all('article', id=re.compile(r'post-[0-9]{1,5}'))
         for post in post_articles:
-            url = post.find('a').get('href')
-            title = post.find('h2', class_='entry-title-2').string
-            img = post.find('img').get('src')
-            tags = post.find('div', class_='content_tag').find_all('span', recursive=False)
-            tags = [tag.get_text().strip() for tag in tags]
-            # 1つだけの場合「すぐめし」アイコンを探す
-            if len(tags) == 1:
-                has_sugumeshi = len(post.find_all('div', class_='cat_now')) > 0
-                if has_sugumeshi:
-                    tags.append('すぐめし')
-            cooking_methods = post.find('div', class_='cooking_method')
-            if cooking_methods is not None:
-                cooking_methods = cooking_methods.find_all('span', recursive=False)
-                cooking_methods = [method.get_text().strip() for method in cooking_methods]
+            if post.get('id') == 'post-0':
+                # 検索結果0件の場合
+                print('No results.')
+                post_items.append(CookinItem({
+                    'url': '',
+                    'title': 'レシピが見つかりませんでした。',
+                    'img': '',
+                    'tags': [],
+                    'cooking_methods': []
+                }))
+                break
             else:
-                cooking_methods = []
-            post_items.append(CookinItem({
-                'url': url.strip(),
-                'title': title.strip(),
-                'img': img.strip(),
-                'tags': tags,
-                'cooking_methods': cooking_methods
-            }))
-        self.logger.debug('items sum : {}'.format(len(post_items))
-        self.items = post_items
+                url = post.find('a').get('href')
+                title = post.find('h2', class_='entry-title-2').string
+                img = post.find('img').get('src')
+                tags = post.find('div', class_='content_tag').find_all('span', recursive=False)
+                tags = [tag.get_text().strip() for tag in tags]
+                # 1つだけの場合「すぐめし」アイコンを探す
+                if len(tags) == 1:
+                    has_sugumeshi = len(post.find_all('div', class_='cat_now')) > 0
+                    if has_sugumeshi:
+                        tags.append('すぐめし')
+                cooking_methods = post.find('div', class_='cooking_method')
+                if cooking_methods is not None:
+                    cooking_methods = cooking_methods.find_all('span', recursive=False)
+                    cooking_methods = [method.get_text().strip() for method in cooking_methods]
+                else:
+                    cooking_methods = []
+                post_items.append(CookinItem({
+                    'url': url.strip(),
+                    'title': title.strip(),
+                    'img': img.strip(),
+                    'tags': tags,
+                    'cooking_methods': cooking_methods
+                }))
+            # self.logger.debug('items sum : {}'.format(len(post_items)))
+            self.items = post_items
 
 
 class ShirogohanScraper(Scraper):
@@ -88,5 +99,8 @@ class ShirogohanScraper(Scraper):
 
 
 if __name__ == "__main__":
-    s = CookinScraper('鶏肉')
-    s.request_cokkin()
+    s = CookinScraper('ofewanv')
+    s.request()
+    s.get_items()
+    res = s.items
+    print(len(res))

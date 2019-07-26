@@ -30,6 +30,9 @@ def scrape(bs):
     post_articles = bs.find_all('article', id=re.compile(r'post-[0-9]{1,5}'))
 
     for post in post_articles:
+        if post.get('id') == 'post-0':
+            print('No results.')
+
         url = post.find('a').get('href')
         title = post.find('h2', class_='entry-title-2').string
         img = post.find('img').get('src')
@@ -59,7 +62,7 @@ def scrape(bs):
 
 if __name__ == "__main__":
     import json
-    soup = request('豚肉')
+    soup = request('豚')
     posts = scrape(soup)
     print(len(posts))
     # with open('./posts.json', 'w', encoding='utf-8') as f:
