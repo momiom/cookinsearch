@@ -1,24 +1,33 @@
 from linebot.models import (BubbleContainer, ImageComponent, BoxComponent,
                             TextComponent, SpacerComponent, IconComponent,
-                            ButtonComponent, SeparatorComponent, URIAction)
+                            ButtonComponent, SeparatorComponent, URIAction,
+                            CarouselContainer)
+import logging
 
 
 class CarouselCreator:
     @staticmethod
     def create_carousel(items):
-        bubble = BubbleContainer(
-            direction='ltr',
-            hero=ImageComponent(
-                url='https://example.com/cafe.jpg',
+        if __name__ != "__main__":
+            # Flaskのロガーを取得
+            logger = logging.getLogger('flask.app')
+        
+        logger.debug(len(items))
+
+        bubbles = []
+        for item in items:
+            hero = ImageComponent(
+                url=item.img,
                 size='full',
                 aspect_ratio='20:13',
                 aspect_mode='cover',
-                action=URIAction(uri='http://example.com', label='label')),
-            body=BoxComponent(
+                action=URIAction(uri=item.url, label='label')
+            )
+            body = BoxComponent(
                 layout='vertical',
                 contents=[
                     # title
-                    TextComponent(text='Brown Cafe', weight='bold', size='xl'),
+                    TextComponent(text=item.title, weight='bold', size='xl'),
                     # review
                     BoxComponent(
                         layout='baseline',
@@ -45,7 +54,8 @@ class CarouselCreator:
                                 color='#999999',
                                 margin='md',
                                 flex=0)
-                        ]),
+                        ]
+                    ),
                     # info
                     BoxComponent(
                         layout='vertical',
@@ -66,7 +76,8 @@ class CarouselCreator:
                                             color='#666666',
                                             size='sm',
                                             flex=5)
-                                ], ),
+                                ], 
+                            ),
                             BoxComponent(
                                 layout='baseline',
                                 spacing='sm',
@@ -82,10 +93,13 @@ class CarouselCreator:
                                         color='#666666',
                                         size='sm',
                                         flex=5, ),
-                                ], ),
-                        ], )
-                ], ),
-            footer=BoxComponent(
+                                ], 
+                            ),
+                        ], 
+                    )
+                ], 
+            )
+            footer = BoxComponent(
                 layout='vertical',
                 spacing='sm',
                 contents=[
@@ -104,8 +118,19 @@ class CarouselCreator:
                         height='sm',
                         action=URIAction(
                             label='WEBSITE', uri="https://example.com"))
-                ]), )
-        return bubble
+                ]
+            )
+
+            bubble = BubbleContainer(
+                direction='ltr',
+                hero=hero,
+                body=body,
+                footer=footer, 
+            )
+            bubbles.append(bubble)
+        
+        carousel = CarouselContainer(bubbles)
+        return carousel
 
 if __name__ == "__main__":
     carousel_template = CarouselCreator.create_carousel([])

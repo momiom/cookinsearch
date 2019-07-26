@@ -59,6 +59,7 @@ def callback():
 def handle_message(event):
     scraper = CookinScraper(event.message.text)
     carousel_template = CarouselCreator.create_carousel(scraper.items)
+    
     app.logger.debug('load carousel template')
     app.logger.debug(carousel_template)
     
