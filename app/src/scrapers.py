@@ -16,6 +16,7 @@ class Scraper(metaclass=ABCMeta):
         self.request_url = ''
         self._base_url = ''
         self._soup = None
+        self.items = []
 
         self.request()
         self.get_items()
@@ -50,7 +51,6 @@ class CookinScraper(Scraper):
         post_items = []
 
         post_articles = self._soup.find_all('article', id=re.compile(r'post-[0-9]{1,5}'))
-
         for post in post_articles:
             url = post.find('a').get('href')
             title = post.find('h2', class_='entry-title-2').string

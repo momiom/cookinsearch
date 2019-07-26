@@ -8,14 +8,12 @@ import logging
 class CarouselCreator:
     @staticmethod
     def create_carousel(items):
-        if __name__ != "__main__":
-            # Flaskのロガーを取得
-            logger = logging.getLogger('flask.app')
-        
+        # Flaskのロガーを取得
+        logger = logging.getLogger('flask.app')
         logger.debug(len(items))
 
         bubbles = []
-        for item in items:
+        for item in items[:10]:
             hero = ImageComponent(
                 url=item.img,
                 size='full',
@@ -131,6 +129,7 @@ class CarouselCreator:
         
         carousel = CarouselContainer(bubbles)
         return carousel
+
 
 if __name__ == "__main__":
     carousel_template = CarouselCreator.create_carousel([])

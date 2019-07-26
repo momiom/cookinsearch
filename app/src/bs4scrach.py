@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import re
+from items import CookinItem
 
 
 def request(input_word):
@@ -24,9 +25,10 @@ def scrape(bs):
     """
     :type bs: BeautifulSoup
     """
-    posts = []
+    post_items = []
 
     post_articles = bs.find_all('article', id=re.compile(r'post-[0-9]{1,5}'))
+
     for post in post_articles:
         url = post.find('a').get('href')
         title = post.find('h2', class_='entry-title-2').string
@@ -38,23 +40,27 @@ def scrape(bs):
             has_sugumeshi = len(post.find_all('div', class_='cat_now')) > 0
             if has_sugumeshi:
                 tags.append('すぐめし')
-        cooking_methods = post.find('div', class_='cooking_method').find_all('span', recursive=False)
-        cooking_methods = [method.get_text().strip() for method in cooking_methods]
-        posts.append({
+        cooking_methods = post.find('div', class_='cooking_method')
+        if cooking_methods is not None:
+            cooking_methods = cooking_methods.find_all('span', recursive=False)
+            cooking_methods = [method.get_text().strip() for method in cooking_methods]
+        else:
+            cooking_methods = []
+        post_items.append(CookinItem({
             'url': url.strip(),
             'title': title.strip(),
             'img': img.strip(),
             'tags': tags,
             'cooking_methods': cooking_methods
-        })
+        }))
 
-    return posts
+    return post_items[:10]
 
 
 if __name__ == "__main__":
     import json
     soup = request('豚肉')
     posts = scrape(soup)
-    print(posts)
-    with open('./posts.json', 'w', encoding='utf-8') as f:
-        json.dump(posts, f, indent=4, ensure_ascii=False)
+    print(len(posts))
+    # with open('./posts.json', 'w', encoding='utf-8') as f:
+    #     json.dump(posts, f, indent=4, ensure_ascii=False)
