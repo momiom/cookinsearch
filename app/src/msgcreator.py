@@ -21,38 +21,33 @@ class CarouselCreator:
                 aspect_mode='cover',
                 action=URIAction(uri=item.url, label='label')
             )
+            
+            # body
+            title_text_component = TextComponent(
+                        text=item.title,
+                        weight='bold',
+                        size='lg',
+                        color='#5c5752'
+                    )
+            # tagをTextComponentの配列に
+            tag_components = []
+            for tag in item.tags:
+                tag_components.append(TextComponent(
+                    text=tag,
+                    size='sm',
+                    color='#5c5752'
+                ))
+            # 組み立て
             body = BoxComponent(
                 layout='vertical',
                 contents=[
                     # title
-                    TextComponent(text=item.title, weight='bold', size='xl'),
-                    # review
+                    title_text_component,
+                    # tags
                     BoxComponent(
                         layout='baseline',
                         margin='md',
-                        contents=[
-                            IconComponent(
-                                size='sm',
-                                url='https://example.com/gold_star.png'),
-                            IconComponent(
-                                size='sm',
-                                url='https://example.com/grey_star.png'),
-                            IconComponent(
-                                size='sm',
-                                url='https://example.com/gold_star.png'),
-                            IconComponent(
-                                size='sm',
-                                url='https://example.com/gold_star.png'),
-                            IconComponent(
-                                size='sm',
-                                url='https://example.com/grey_star.png'),
-                            TextComponent(
-                                text='4.0',
-                                size='sm',
-                                color='#999999',
-                                margin='md',
-                                flex=0)
-                        ]
+                        contents=tag_components
                     ),
                     # info
                     BoxComponent(
@@ -68,12 +63,15 @@ class CarouselCreator:
                                         text='Place',
                                         color='#aaaaaa',
                                         size='sm',
-                                        flex=1), TextComponent(
-                                            text='Shinjuku, Tokyo',
-                                            wrap=True,
-                                            color='#666666',
-                                            size='sm',
-                                            flex=5)
+                                        flex=1
+                                    ), 
+                                    TextComponent(
+                                        text='Shinjuku, Tokyo',
+                                        wrap=True,
+                                        color='#666666',
+                                        size='sm',
+                                        flex=5
+                                    )
                                 ], 
                             ),
                             BoxComponent(
@@ -84,13 +82,15 @@ class CarouselCreator:
                                         text='Time',
                                         color='#aaaaaa',
                                         size='sm',
-                                        flex=1),
+                                        flex=1
+                                    ),
                                     TextComponent(
                                         text="10:00 - 23:00",
                                         wrap=True,
                                         color='#666666',
                                         size='sm',
-                                        flex=5, ),
+                                        flex=5,
+                                    ),
                                 ], 
                             ),
                         ], 
