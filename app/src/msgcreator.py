@@ -3,6 +3,7 @@ from linebot.models import (BubbleContainer, ImageComponent, BoxComponent,
                             ButtonComponent, SeparatorComponent, URIAction,
                             CarouselContainer)
 import logging
+from const import *
 
 
 class CarouselCreator:
@@ -27,74 +28,72 @@ class CarouselCreator:
                         text=item.title,
                         weight='bold',
                         size='lg',
+                        color='#5c5752',
+                    )
+            # tagをTextComponentの配列に整形
+            tag_components = []
+            for i, tag in enumerate(item.tags):
+                if i == 0:
+                    tag_components.append(
+                        TextComponent(
+                            text=tag,
+                            size='sm',
+                            color='#5c5752',
+                            flex=0,
+                        )
+                    )
+                    continue
+                tag_components.append(
+                    TextComponent(
+                        text=tag,
+                        size='sm',
+                        color='#5c5752',
+                        flex=1,
+                    )
+                )
+            # 調理方法をiconComponentとtextComponentの配列に整形
+            cooking_method_components = []
+            for method in item.cooking_methods:
+                cooking_method_components.append(
+                    IconComponent(
+                        url=DOMAIN + method['icon'],
+                        size='sm',
                         color='#5c5752'
                     )
-            # tagをTextComponentの配列に
-            tag_components = []
-            for tag in item.tags:
-                tag_components.append(TextComponent(
-                    text=tag,
-                    size='sm',
-                    color='#5c5752'
-                ))
+                )
+                cooking_method_components.append(
+                    TextComponent(
+                        text=method['name'],
+                        size='sm',
+                        color='#5c5752',
+                        flex=1
+                    )
+               )
             # 組み立て
             body = BoxComponent(
                 layout='vertical',
                 contents=[
                     # title
                     title_text_component,
-                    # tags
-                    BoxComponent(
-                        layout='baseline',
-                        margin='md',
-                        contents=tag_components
-                    ),
-                    # info
+                    
+                    # tags, cooking methods
                     BoxComponent(
                         layout='vertical',
-                        margin='lg',
-                        spacing='sm',
+                        margin='md',
+                        spacing='xl',
                         contents=[
                             BoxComponent(
                                 layout='baseline',
-                                spacing='sm',
-                                contents=[
-                                    TextComponent(
-                                        text='Place',
-                                        color='#aaaaaa',
-                                        size='sm',
-                                        flex=1
-                                    ), 
-                                    TextComponent(
-                                        text='Shinjuku, Tokyo',
-                                        wrap=True,
-                                        color='#666666',
-                                        size='sm',
-                                        flex=5
-                                    )
-                                ], 
+                                spacing='xl',
+                                contents=tag_components
                             ),
                             BoxComponent(
                                 layout='baseline',
                                 spacing='sm',
-                                contents=[
-                                    TextComponent(
-                                        text='Time',
-                                        color='#aaaaaa',
-                                        size='sm',
-                                        flex=1
-                                    ),
-                                    TextComponent(
-                                        text="10:00 - 23:00",
-                                        wrap=True,
-                                        color='#666666',
-                                        size='sm',
-                                        flex=5,
-                                    ),
-                                ], 
-                            ),
-                        ], 
-                    )
+                                contents=cooking_method_components
+                            )
+                        ]
+                    ),
                 ], 
             )
             footer = BoxComponent(

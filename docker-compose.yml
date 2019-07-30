@@ -4,7 +4,7 @@ services:
   uwsgi:
     build: ./app
     volumes:
-      - ./app/src:/var/www/src
+      - ./app/:/var/www/
       - ./logs:/var/logs/
     ports:
       - "3031:3031"

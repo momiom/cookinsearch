@@ -31,7 +31,8 @@ handler = WebhookHandler('323db4ca5a11c147b072e2b4faa3d3d5')
 @app.route("/")
 def index():
     app.logger.info('call index')
-    return '<h1>index</h1>'
+    app.logger.debug(app.url_map)
+    return '<h1>indexaaaa</h1><img src="/static/images/pot.png">'
 
 
 @app.route("/callback", methods=['POST'])
