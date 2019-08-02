@@ -1,119 +1,131 @@
 {
     "type": "carousel",
     "contents": [
-        {
-            "type": "bubble",
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    {
-                        "color": "#5c5752",
-                        "size": "lg",
-                        "text": "なすの揚げびたし",
-                        "type": "text",
-                        "weight": "bold"
-                    },
-                    {
-                        "type": "box",
-                        "layout": "baseline",
-                        "spacing": "xl",
-                        "contents": [
-                            {
-                                "color": "#5c5752",
-                                "flex": 0,
-                                "size": "sm",
-                                "text": "調理10分",
-                                "type": "text"
-                            },
-                            {
-                                "color": "#5c5752",
-                                "flex": 1,
-                                "size": "sm",
-                                "text": "日持ち4日",
-                                "type": "text"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "box",
-                        "layout": "baseline",
-                        "spacing": "sm",
-                        "contents": [
-                            {
-                                "type": "icon",
-                                "size": "sm",
-                                "url": "https://line.k12i.space/static/images/fire.png"
-                            },
-                            {
-                                "type": "text",
-                                "color": "#5c5752",
-                                "flex": 1,
-                                "size": "sm",
-                                "text": "火を使わない"
-                            },
-                            {
-                                "type": "icon",
-                                "size": "sm",
-                                "url": "https://line.k12i.space/static/images/pan.png"
-                            },
-                            {
-                                "type": "text",
-                                "color": "#5c5752",
-                                "size": "sm",
-                                "flex": 1,
-                                "text": "フライパン"
-                            }
-                        ]
-                    }
-                ]
+      {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "color": "#5c5752",
+              "size": "lg",
+              "text": "なすの揚げびたし",
+              "type": "text",
+              "weight": "bold"
             },
-            "footer": {
-                "contents": [
-                    {
-                        "size": "sm",
-                        "type": "spacer"
-                    },
-                    {
-                        "action": {
-                            "label": "CALL",
-                            "type": "uri",
-                            "uri": "tel:000000"
-                        },
-                        "height": "sm",
-                        "style": "link",
-                        "type": "button"
-                    },
-                    {
-                        "type": "separator"
-                    },
-                    {
-                        "action": {
-                            "label": "WEBSITE",
-                            "type": "uri",
-                            "uri": "https://example.com"
-                        },
-                        "height": "sm",
-                        "style": "link",
-                        "type": "button"
-                    }
-                ],
-                "layout": "vertical",
-                "spacing": "sm",
-                "type": "box"
-            },
-            "hero": {
-                "action": {
-                    "label": "label",
-                    "type": "uri",
-                    "uri": "https://cookien.com/recipe/2690/"
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "xl",
+              "contents": [
+                {
+                  "color": "#5c5752",
+                  "flex": 0,
+                  "size": "sm",
+                  "text": "調理10分",
+                  "type": "text"
                 },
-                "aspectMode": "cover",
-                "aspectRatio": "20:13",
-                "size": "full",
-                "type": "image",
-                "url": "https://cookien.com/wp-content/uploads/2018/05/nasu-agebitasi-300x199.jpg"
+                {
+                  "color": "#5c5752",
+                  "flex": 1,
+                  "size": "sm",
+                  "text": "日持ち4日",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "spacing": "md",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "xs",
+                  "contents": [
+                    {
+                      "type": "icon",
+                      "size": "sm",
+                      "url": "https://line.k12i.space/static/images/fire.png"
+                    },
+                    {
+                      "type": "text",
+                      "color": "#5c5752",
+                      "size": "sm",
+                      "text": "火を使わない"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "icon",
+                      "size": "xs",
+                      "url": "https://line.k12i.space/static/images/pan.png"
+                    },
+                    {
+                      "type": "text",
+                      "color": "#5c5752",
+                      "size": "sm",
+                      "text": "フライパン"
+                    }
+                  ]
+                }
+              ]
             }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "spacing": "sm",
+          "contents": [
+            {
+              "size": "sm",
+              "type": "spacer"
+            },
+            {
+              "type": "button",
+              "height": "sm",
+              "style": "link",
+              "action": {
+                "label": "CALL",
+                "type": "uri",
+                "uri": "tel:000000"
+              }
+            },
+            {
+              "type": "separator"
+            },
+            {
+              "type": "button",
+              "height": "sm",
+              "style": "link",
+              "action": {
+                "label": "WEBSITE",
+                "type": "uri",
+                "uri": "https://example.com"
+              }
+            }
+          ]
+        },
+        "hero": {
+          "action": {
+            "label": "label",
+            "type": "uri",
+            "uri": "https://cookien.com/recipe/2690/"
+          },
+          "aspectMode": "cover",
+          "aspectRatio": "20:13",
+          "size": "full",
+          "type": "image",
+          "url": "https://cookien.com/wp-content/uploads/2018/05/nasu-agebitasi-300x199.jpg"
         }
+      }
     ]
-}
+  }

@@ -27,22 +27,22 @@ class CarouselCreator:
             title_text_component = TextComponent(
                         text=item.title,
                         weight='bold',
-                        size='lg',
+                        size='md',
                         color='#5c5752',
                     )
             # tagをTextComponentの配列に整形
             tag_components = []
-            for i, tag in enumerate(item.tags):
-                if i == 0:
-                    tag_components.append(
-                        TextComponent(
-                            text=tag,
-                            size='sm',
-                            color='#5c5752',
-                            flex=0,
-                        )
-                    )
-                    continue
+            for tag in item.tags:
+#                 if i == 0:
+#                     tag_components.append(
+#                         TextComponent(
+#                             text=tag,
+#                             size='sm',
+#                             color='#5c5752',
+#                             flex=0,
+#                         )
+#                     )
+#                     continue
                 tag_components.append(
                     TextComponent(
                         text=tag,
@@ -72,6 +72,8 @@ class CarouselCreator:
             # 組み立て
             body = BoxComponent(
                 layout='vertical',
+                margin='xl',
+                spacing='xl',
                 contents=[
                     # title
                     title_text_component,
@@ -79,8 +81,7 @@ class CarouselCreator:
                     # tags, cooking methods
                     BoxComponent(
                         layout='vertical',
-                        margin='md',
-                        spacing='xl',
+                        spacing='md',
                         contents=[
                             BoxComponent(
                                 layout='baseline',
